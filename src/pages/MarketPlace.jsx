@@ -108,7 +108,6 @@ function MarketPlace() {
 
   return (
     <>
-      <h1>Hello World</h1>
       <section className="container mx-auto my-4">
         <Select
           placeholder="Select location"
