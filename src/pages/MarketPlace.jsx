@@ -1,12 +1,14 @@
 import "../App.css";
 import PetList from "../components/PetList.jsx";
 import { PET_DATA } from "../data.js";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Select } from "antd";
 import AddPet from "../components/AddPet.jsx";
+import { UserContext } from "../context/UserContextProvider.jsx";
 
 function MarketPlace() {
   const [petStore, setPetStore] = useState(PET_DATA);
+  const { user } = useContext(UserContext);
 
   const handlePetLocationFilter = (value) => {
     switch (value) {
@@ -108,6 +110,7 @@ function MarketPlace() {
 
   return (
     <>
+      <h1>{user.name}</h1>
       <section className="container mx-auto my-4">
         <Select
           placeholder="Select location"
@@ -177,6 +180,7 @@ function MarketPlace() {
           ]}
         />
       </section>
+
       <div className="container mx-auto">
         <AddPet handleAddPet={handleAddNewPet} />
       </div>
